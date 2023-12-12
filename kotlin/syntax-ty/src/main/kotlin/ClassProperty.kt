@@ -5,7 +5,6 @@ class Coffee(
     val brand: String
         get() = "스타벅스"
 
-
     var quantity: Int = 0
         set(value) {
             if (value > 0) {
