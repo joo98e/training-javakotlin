@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="main">
+        <input id="mainInput" type="number">
+        <button onclick="fnStart()">시작</button>
+        <div id="result"></div>
+    </div>
+    <style>
+#mainInput {
+    transition-duration: 0.5s;
+    font-weight: bold;
+}
+    </style>
+    <script>
+    const fnStart = () => {
+        const $target = document.querySelector('#mainInput');
+        const $result = document.querySelector('#result');
+        const numInput = (isNaN($target.value) || $target.value <= 0) ? 0 : Number($target.value);
+        if (numInput) {
+            $target.style.backgroundColor = '';
+            fnBooleanShow(numInput);
+        }
+        else {
+            $target.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+            $target.value = '';
+            $result.innerHTML = '';
+        }
+    }
+    const fnArrayCheck = (_arr, _cnt) => {
+        let strResult = _cnt + '. ';
+        for (i = 0; i < _arr.length; i++){
+            strResult += (_arr[i] ? "1" : "0");
+        }
+        strResult += "<br/>";
+        return strResult;
+    }
+
+    const fnBooleanShow = (_num) => {
+        const numLength = _num;
+        let arrList = new Array();
+        let bolFlag = false;
+        let numCount = 1;
+        let strText = '';
+        for (i = 0; i < numLength; i++){
+            arrList[i] = false;
+        }
+        strText += fnArrayCheck(arrList, numCount);
+        numCount++;
+        while(!bolFlag){
+            for (k = arrList.length - 1; k >= 0; k--){
+                if (arrList[k] === false){
+                    arrList[k] = true;
+                    for (j = k + 1; j < arrList.length; j++){
+                        arrList[j] = false;
+                    }
+
+                    break;
+                }
+            }
+            let strResult = numCount + '. ';
+            bolFlag = true;
+            for(m = 0; m < arrList.length; m++){
+                if (arrList[m] === false){
+                    bolFlag = false;
+                }
+            }
+            strText += fnArrayCheck(arrList, numCount);
+            numCount++;
+        }
+        document.querySelector('#result').innerHTML = strText;
+    }
+    </script>
+</body>
+</html>
