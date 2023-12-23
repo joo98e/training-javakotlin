@@ -6,6 +6,7 @@ import org.example.domain.util.generator.RandomUtil
 import org.junit.jupiter.api.Test
 
 class RandomGeneratorTest {
+
     @Test
     fun `자리수를 넘겨주면 랜덤의 숫자를 리턴한다`() {
         // given

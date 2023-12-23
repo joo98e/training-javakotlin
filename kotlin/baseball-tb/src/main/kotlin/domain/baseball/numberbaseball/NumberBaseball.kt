@@ -17,6 +17,7 @@ class NumberBaseball(
 
         val attemptNumberToString = attemptNumber.toString().map { it.toString().toInt() }
 
+
         return NumberBaseballMatchupResult.of(strike = strike, ball = ball)
     }
 }
