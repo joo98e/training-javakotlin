@@ -1,6 +1,6 @@
 package org.example.domain.input.actor
 
-import org.example.domain.util.validate.ValueConvertor
+import domain.util.convertor.ValueConvertor
 
 class InputLine {
     companion object {

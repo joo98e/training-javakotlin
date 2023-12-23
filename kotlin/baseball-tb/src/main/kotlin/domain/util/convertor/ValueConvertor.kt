@@ -1,4 +1,4 @@
-package org.example.domain.util.validate
+package domain.util.convertor
 
 class ValueConvertor {
     companion object {
