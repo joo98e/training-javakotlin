@@ -1,13 +1,12 @@
 package org.example.domain.util.validate
 
-class CustomValidator {
+class ValueConvertor {
     companion object {
-        fun isNumeric(value: String): Boolean {
-            try {
+        fun toNumeric(value: String): Int {
+            return try {
                 value.toInt()
-                return true
             } catch (e: NumberFormatException) {
-                return false
+                throw NumberFormatException("숫자로 입력하세요.")
             }
         }
     }
